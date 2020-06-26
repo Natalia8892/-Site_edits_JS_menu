@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* First section without height */
+    .block__section {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+      margin: 0;
+      flex-direction: row;
+    }
+
+    .block__ul {
+      flex: 1 0;
+      max-width: 50%;
+      list-style: none;
+      position: relative;
+    }
+
+    .block__ul_hidden {
+      display: none;
+    }
+
+    .block__li {
+      position: relative;
+      /* height: 16%; */
+      height: auto;
+      padding: 0 20px 15px 20px;
+      font-family: Proxima Nova light, Arial;
+      text-align: justify;
+      font-size: calc(10px + 7 * (100vw / 1500));
+      /* font-size: 17px; */
+      color: #262626;
+    }
+
+    .block__li::before {
+      content: "\2714";
+      position: absolute;
+      top: -4px;
+      left: 0;
+      color: #8cd85e;
+    }
+
+    /* Adaptiv block 1*/
+    @media(min-width:992px)and (max-width:1199.9px) {
+      .block__li {
+        padding: 0 20px 20px 20px;
+      }
+    }
+
+    @media(min-width:768px)and (max-width:991.9px) {
+      .block__ul {
+        padding: 0.5rem;
+      }
+
+      .block__li {
+        padding: 0 20px 16px 20px;
+      }
+    }
+
+    @media(min-width:576px)and (max-width:767.9px) {
+      .block__ul {
+        display: none;
+      }
+
+      .block__ul_hidden {
+        display: block;
+        list-style: none;
+      }
+
+      .block__li {
+        padding: 0 40px 15px 20px;
+      }
+    }
+
+    @media(min-width:320px)and (max-width:575.9px) {
+      .block__ul {
+        display: none;
+      }
+
+      .block__ul_hidden {
+        display: block;
+        list-style: none;
+        padding: 0 0 0 30px;
+      }
+
+      .block__li {
+        padding: 0 30px 15px 20px;
+        font-size: calc(10px + (7 + 7 * 0.7) * ((100vw - 320px) / 1500));
+      }
+    }
+
+    /* Second section with height */
+    .block__section_2 {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+      margin: 0;
+      flex-direction: row;
+    }
+
+    .block__ul_2 {
+      flex: 1 0;
+      max-width: 50%;
+      list-style: none;
+      position: relative;
+    }
+
+    .block__ul_hidden {
+      display: none;
+    }
+
+    .block__li_2 {
+      position: relative;
+      height: 16%;
+      padding: 0 20px 15px 20px;
+      font-family: Proxima Nova light, Arial;
+      text-align: justify;
+      /* font-size: 17px; */
+      font-size: calc(10px + 7 * (100vw / 1500));
+      color: #262626;
+    }
+
+    .block__li_2::before {
+      content: "\2714";
+      position: absolute;
+      top: -4px;
+      left: 0;
+      color: #8cd85e;
+    }
+
+
+    /* Adaptiv block 2*/
+
+    @media(min-width:992px)and (max-width:1199.9px) {
+      .block__li_2 {
+        padding: 0 20px 20px 20px;
+        height: 18%;
+      }
+    }
+
+    @media(min-width:768px)and (max-width:991.9px) {
+      .block__ul_2 {
+        padding: 0.5rem;
+      }
+
+      .block__li_2 {
+        padding: 0 20px 16px 20px;
+        height: 20%;
+      }
+    }
+
+    @media(min-width:576px)and (max-width:767.9px) {
+      .block__ul_2 {
+        display: none;
+      }
+
+      .block__ul_hidden {
+        display: block;
+        list-style: none;
+      }
+
+      .block__li_2 {
+        padding: 0 40px 15px 20px;
+      }
+    }
+
+    @media(min-width:320px)and (max-width:575.9px) {
+      .block__ul_2 {
+        display: none;
+      }
+
+      .block__ul_hidden {
+        display: block;
+        list-style: none;
+        padding: 0 0 0 30px;
+      }
+
+      .block__li_2 {
+        padding: 0 30px 15px 20px;
+        font-size: calc(10px + (7 + 7 * 0.7) * ((100vw - 320px) / 1500));
+      }
+    }
+
+
+    /* Questions+JS */
+    #box>li {
+      position: relative;
+      margin: 0 1rem 0 0;
+      list-style: none;
+      padding: 0 0 1rem 1.5rem;
+      cursor: pointer;
+      /* font-size: 20px; */
+      font-size: calc(14px + (6 + 6 * 0.7) * ((100vw - 320px) / 1500));
+      line-height: 20px;
+      font-family: Proxima Nova Light, Arial;
+      font-weight: 600;
+      text-align: justify;
+    }
+
+    #box>li::before {
+      content: "\2714";
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: #8cd85e;
+    }
+
+    #box>li:hover {
+      color: red;
+      /*any color, underline,effects*/
+    }
+
+    #box>li p {
+      color: black;
+    }
+
+    li>p {
+      display: none;
+    }
+
+    .on {
+      display: block;
+      max-width: 1050px;
+      padding: 0.5rem 0 0 1.5rem;
+      margin: .2rem;
+      /* font-size: 15px; */
+      font-size: calc(10px + (5 + 5 * 0.7) * ((100vw - 320px) / 1500));
+      font-family: Proxima Nova Light, Arial;
+      font-weight: 200;
+      line-height: 25px;
+      /* text-indent: 0.5rem; */
+    }
+  </style>
+</head>
+
+<body>
+  <span style="font-weight:600">First block without indicated height</span>
+
+  <div class="block__section">
+    <ul class="block__ul">
+      <li class="block__li">Hardware from premium manufacturers like Intel, Supermicro, HP, Dell;</li>
+      <li class="block__li">KVM - virtualization ensures the use of the physical server resources exclusively for the
+        needs of your project;</li>
+      <li class="block__li"> VNC and SSH-root access provides a secure, reliable connection to your server;</li>
+      <li class="block__li">SSD - caching - the fastest possible access to data;</li>
+      <li class="block__li">Windows Server OS is already on board;</li>
+    </ul>
+    <ul class="block__ul">
+      <li class="block__li">two client licenses for remote desktop (RDP) service are already included in every VPS
+        Windows server tariff plan;</li>
+      <li class="block__li">wide choice of control panels;</li>
+      <li class="block__li">equipment diagnostic and traffic analysis options available at any time for free;</li>
+      <li class="block__li">highly professional all-around-the-clock technical support team helps in solving any issue
+        related to the use of the service;</li>
+    </ul>
+    <ul class="block__ul_hidden">
+      <li class="block__li">Hardware from premium manufacturers like Intel, Supermicro, HP, Dell;</li>
+      <li class="block__li">KVM - virtualization ensures the use of the physical server resources exclusively for the
+        needs of your project;</li>
+      <li class="block__li"> VNC and SSH-root access provides a secure, reliable connection to your server;</li>
+      <li class="block__li">SSD - caching - the fastest possible access to data;</li>
+      <li class="block__li">Windows Server OS is already on board;</li>
+      <li class="block__li">two client licenses for remote desktop (RDP) service are already included in every VPS
+        Windows server tariff plan;</li>
+      <li class="block__li">wide choice of control panels;</li>
+      <li class="block__li">equipment diagnostic and traffic analysis options available at any time for free;</li>
+      <li class="block__li">highly professional all-around-the-clock technical support team helps in solving any issue
+        related to the use of the service;</li>
+    </ul>
+  </div>
+  <hr>
+  <span style="font-weight:600">Second block with indicated height</span>
+  <div class="block__section_2">
+    <ul class="block__ul_2">
+      <li class="block__li_2">Hardware from premium manufacturers like Intel, Supermicro, HP, Dell;</li>
+      <li class="block__li_2">KVM - virtualization ensures the use of the physical server resources exclusively for the
+        needs of your project;</li>
+      <li class="block__li_2"> VNC and SSH-root access provides a secure, reliable connection to your server;</li>
+      <li class="block__li_2">SSD - caching - the fastest possible access to data;</li>
+      <li class="block__li_2">Windows Server OS is already on board;</li>
+    </ul>
+    <ul class="block__ul_2">
+      <li class="block__li_2">two client licenses for remote desktop (RDP) service are already included in every VPS
+        Windows server tariff plan;</li>
+      <li class="block__li_2">wide choice of control panels;</li>
+      <li class="block__li_2">equipment diagnostic and traffic analysis options available at any time for free;</li>
+      <li class="block__li_2">highly professional all-around-the-clock technical support team helps in solving any issue
+        related to the use of the service;</li>
+    </ul>
+    <ul class="block__ul_hidden">
+      <li class="block__li">Hardware from premium manufacturers like Intel, Supermicro, HP, Dell;</li>
+      <li class="block__li">KVM - virtualization ensures the use of the physical server resources exclusively for the
+        needs of your project;</li>
+      <li class="block__li"> VNC and SSH-root access provides a secure, reliable connection to your server;</li>
+      <li class="block__li">SSD - caching - the fastest possible access to data;</li>
+      <li class="block__li">Windows Server OS is already on board;</li>
+      <li class="block__li">two client licenses for remote desktop (RDP) service are already included in every VPS
+        Windows server tariff plan;</li>
+      <li class="block__li">wide choice of control panels;</li>
+      <li class="block__li">equipment diagnostic and traffic analysis options available at any time for free;</li>
+      <li class="block__li">highly professional all-around-the-clock technical support team helps in solving any issue
+        related to the use of the service;</li>
+    </ul>
+  </div>
+  <br>
+  <hr>
+  <ul id="box">
+    <li class="reboot">How to reboot my VPS server?
+      <p>Just use our Quick Management module (Services → My services → QM) or
+        go to
+        Services → My services → View Details → Reboot
+      </p>
+    </li>
+    <li class="reset">How to reset Windows VPS password?
+      <p>This is quite a simple procedure, so you can do this yourself, following
+        this guide:</p>
+      <p>1. In VPS Control Panel mount CDROM "Win2012_DC_64bit_with_virtio";</p>
+      <p>2. In VPS Control Panel on Drivers page mount "Virtio 0.1 81" drivers;</p>
+      <p>3. Reboot VPS, then press any key to start installation CDROM;</p>
+      <p>4. Select Language and press Next;</p>
+      <p>5. Click "Repair Computer" → "Troubleshoot" → "Advanced options" → "System Image Recovery";</p>
+      <p>6. Click "Cancel", then "Select a System Image" → "Next" → "Advanced..." → "Install a driver" → "OK";</p>
+      <p>7. Go to "CD Drive" → "WIN8" → "AMD64";</p>
+      <p>8. Select "VIOSTOR.inf", click "Open" → "Add Drivers...";</p>
+      <p>9. Go back to main menu and click "Troubleshoot" -> "Advanced options" → "Command Prompt";</p>
+      <p>10. Type "E:" (drive name may vary) and click Enter;</p>
+      <p>11. Type "cd windows/system32" and click Enter;</p>
+      <p>12. Type "ren utilman.exe utilman.exe.bak" and click Enter;</p>
+      <p>13. Type "copy cmd.exe utilman.exe" and click Enter;</p>
+      <p>14. In VPS Control Panel unmount Drivers and installation CDROM;</p>
+      <p>15. Reboot VPS from VPS Control Panel;</p>
+      <p>16. Try to login via RDP or simply open VNC;</p>
+      <p>17. Click on the Utilities Manager button (in the left bottom corner), Command Prompt window should come up;
+      </p>
+      <p>18. Type "net user Administrator ANY_NEW_PASSWORD" and click Enter;</p>
+      <p>19. Close Command Prompt window and login to Windows using password "ANY_NEW_PASSWORD";</p>
+      <p>20. Open Command Prompt or PowerShell, go to "c:\windows\system32" directory;</p>
+      <p>21. Type "del utilman.exe" and click Enter;</p>
+      <p>22. Type "copy utilman.exe.bak utilman.exe" and click Enter
+        However, we recommend submitting a ticket to our admins regarding the matter.</p>
+    </li>
+    <li class="vps">What is the best VPS OS?
+      <p>Choosing the best VPS OS is quite easy, actually. The choice depends solely on your goals and preferred type of
+        software/scripts/management.
+        Windows-based software like .ASP net, Virtual basic and so on requires Windows Server environment, meaning
+        choice is quite simple. Being able to access your files via RDP while remaining within interface you are used to
+        is a great advantage of Windows environment.<br>
+        However, majority of tasks is done best by Linux/FreeBSD systems due to their better performance under peak
+        loads, ease of management and better stability.
+        The most popular system is CentOS (Community Enterprise OS) of Red Hat Enterprise Linux. It is free, compatible
+        with most control panels and updated regularly. We provide several CentOS versions compatible with control
+        panels like WHM, DirectAdmin, Virtualmin and ISP Manager.<br>
+        However, as some clients require Fedora, Ubuntu, Debian or FreeBSD we provide and support latest several
+        versions of these OS too.</p>
+    </li>
+    <li class="disable__security">How to disable Internet Explorer Enhanced Security on Windows VPS?
+      <p>Due to Internet Explorer Enhanced Security
+        Configuration (IE ESC) it becomes a real problem to download anything to your server through Internet Explorer.
+        Even opening a simple web-page will take at least 6 times of clicking through the IE ESC warnings.<br>
+        It will also prevent you from installing some applications which need internet connection during install
+        progress. (e.g. Oracle Java).</p>
+      <p>So if you want to disable Internet Explorer Enhanced Security (IE ESC) follow the next steps:</p>
+      <p>Open Server Manager (your can find it at your taskbar panel);</p>
+      <p>In the Server Manager Dashboard, click on Local Server on the left side;</p>
+      <p>At the right column of Server Properties you’ll see the option named "IE Enhanced Security Configuration".
+        Click
+        "On" to change the option;</p>
+      <p>You’ll be prompted to turn off IE ESC for Administrators and/or Users. Select your option and click OK;</p>
+      <p>Please, keep in mind, that disabling IE ESC may open your server to some IE potential vulnerabilities.</p>
+    </li>
+    <li class="monitor__vps">How to monitor VPS CPU load
+      <p>CPU usage value shows how much server CPU time was consumed by this process within alotted period.</p>
+      <p>Let's say you have 100 processes running, meaning CPU should split its core time between all these processes
+        within a period of time (1 second, for example). If we assume all processes receive equivalent parts of core
+        time, 1 process should receive 1/100 second during each second (0.01) and use it to work on its inner queue of
+        tasks.
+      </p>
+    </li>
+    <li class="get__ip">How to get additional IP's?
+      <p>You can get up to 5 IPv4 without justification, depending on your VPS or Dedicated Server plan. Lower plans get
+        less IPs.</p>
+      <p>In case you ordered only one or insufficient number of IPs, your server can be upgraded anytime in Client Area
+        or via Support Ticket request.</p>
+      <p>Should your project demands more than 5 IPv4 per server, please submit request to Support and we will look what
+        we can do for you. In most cases you will have to fill in the IPv4 Justification form.</p>
+    </li>
+  </ul>
+  <script>
+    let ulBox = document.getElementById("box");
+
+    function getElements(ulBox, fn) {
+      let value;
+      let li = ulBox.getElementsByTagName("li");
+      let properties = Object.values(li);
+      value += fn(properties);
+      return value;
+    }
+
+    function openDescription(value) {
+      for (let y in value) {
+        value[y].addEventListener("click", function () {
+          p = value[y].getElementsByTagName("p");
+          for (var u = 0; u < p.length; u++) {
+            p[u].classList.toggle("on");
+          };
+        });
+      };
+    }
+    getElements(ulBox, openDescription);
+  </script>
+</body>
+
+</html>
